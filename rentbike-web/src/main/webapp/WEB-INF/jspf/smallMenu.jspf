@@ -1,0 +1,15 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<nav>	
+	<ul>
+		<li class="logo">RentBike</li>
+		<li style="float:left; margin-left: 25%; padding-top:6px; font-size: 28px; font-weight: bold; text-decoration: underline; color: white;"><c:out value="${menuLabel}"></c:out></li>
+		<li style="float:right; margin-right:10px"><a href="FrontController?command=logout"><c:out value="${logoutLabel}"></c:out></a></li>
+		<li style="float:right"><a href="FrontController?command=home"><c:out value="${homeLabel}"></c:out></a></li>
+		<li style="float:right; color: white; font-weight: bold; padding: 18px 0px 15px 10px;"><c:out value="${user.name}"></c:out></li>			
+		<li style="float:right; color: white; padding: 18px 0px 15px 10px;">
+			<c:if test="${user.role eq 'ADMIN'}"><c:out value="${adminLabel}"></c:out></c:if>
+			<c:if test="${user.role eq 'USER'}"><c:out value="${userLabel}"></c:out></c:if>	
+		</li>
+	</ul>
+</nav>

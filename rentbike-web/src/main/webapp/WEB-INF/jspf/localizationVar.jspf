@@ -1,0 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!--  ------------------------------------variable localization------------------------------------------ -->
+<fmt:setLocale value="${sessionScope.local}" />
+
+<fmt:setBundle basename="localization.local" var="loc" />
+
+<fmt:message bundle="${loc}" key="addBikeTypeLabel" var="addBikeTypeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addBrandLabel" var="addBrandLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addBikeLabel" var="addBikeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addLabel" var="addLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addParkingLabel" var="addParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addressLabel" var="addressLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addressPlaceholderLabel" var="addressPlaceholderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="addressWrongLabel" var="addressWrongLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="adminLabel" var="adminLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="againPasswordLabel" var="againPasswordLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="againPasswordPlaceholder" var="againPasswordPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="authorizationLabel" var="authorizationLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="amountWarnLabel" var="amountWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="amountOfCollateralLabel" var="amountOfCollateralLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="amountLabel" var="amountLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="bikeCatalogLabel" var="bikeCatalogLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeLabel" var="bikeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikesLabel" var="bikesLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="brandLabel" var="brandLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="brandPlaceholder" var="brandPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="brandWarn" var="brandWarn"></fmt:message>
+<fmt:message bundle="${loc}" key="bikePriceLabel" var="bikePriceLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="birthdayLabel" var="birthdayLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="birthdayPlaceholder" var="birthdayPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeTypeLabel" var="bikeTypeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikePurchaseLabel" var="bikePurchaseLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeTypeWarnLabel" var="bikeTypeWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeTypePlaceholderLabel" var="bikeTypePlaceholderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeInTheParkingLabel" var="bikeInTheParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="birthdayEmptyLabel" var="birthdayEmptyLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeNubmerLabel" var="bikeNubmerLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeHaveBeenAccruedLabel" var="bikeHaveBeenAccruedLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="blockAmountNotice" var="blockAmountNotice"></fmt:message>
+<fmt:message bundle="${loc}" key="bikeNotSelected" var="bikeNotSelected"></fmt:message>
+
+<fmt:message bundle="${loc}" key="changePasswLabel" var="changePasswLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="changeLabel" var="changeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="chooseLabel" var="chooseLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="creditCardLabel" var="creditCardLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="creditCardPlaceholder" var="creditCardPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="creditcardWarnLabel" var="creditcardWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="countLabel" var="countLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="chooseBarndLabel" var="chooseBarndLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="chooseBikeTypeLabel" var="chooseBikeTypeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="countWarnLabel" var="countWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="chooseBikeLabel" var="chooseBikeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="chooseParkingLabel" var="chooseParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="characteristicsLabel" var="characteristicsLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="createOrderLabel" var="createOrderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="confirmOrderLabel" var="confirmOrderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="currentOrderLabel" var="currentOrderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="closeOrderLabel" var="closeOrderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="currentPasswordLabel" var="currentPasswordLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="currentPasswordPlaceholder" var="currentPasswordPlaceholder"></fmt:message>
+
+<fmt:message bundle="${loc}" key="downloadLabel" var="downloadLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="daysLabel" var="daysLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="enterButton" var="enterButton"></fmt:message>
+<fmt:message bundle="${loc}" key="emailLabel" var="emailLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="emailPlaceholder" var="emailPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="emailWarnLabel" var="emailWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="editBikeButton" var="editBikeButton"></fmt:message>
+<fmt:message bundle="${loc}" key="enterAmountLabel" var="enterAmountLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="errorLabel" var="errorLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="findLabel" var="findLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="fromLabel" var="fromLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="freeOrderNotice" var="freeOrderNotice"></fmt:message>
+<fmt:message bundle="${loc}" key="finishTimeLabel" var="finishTimeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="finishParkingLabel" var="finishParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="fromDataLabel" var="fromDataLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="toDataLabel" var="toDataLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="freeLabel" var="freeLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="goLabel" var="goLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="homeLabel" var="homeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="hoursLabel" var="hoursLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="locButtonEN" var="en_button"></fmt:message>
+<fmt:message bundle="${loc}" key="locButtonRU" var="ru_button"></fmt:message>
+<fmt:message bundle="${loc}" key="logoutLabel" var="logoutLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="loginLabel" var="loginLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="loginFieldLabel" var="loginFieldLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="loginPlaceholder" var="loginPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="loginWarn" var="loginWarn"></fmt:message>
+<fmt:message bundle="${loc}" key="loginOrPasswWrong" var="loginOrPasswWrong"></fmt:message>
+
+<fmt:message bundle="${loc}" key="modelLabel" var="modelLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="modelPlaceholder" var="modelPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="modelWarnLabel" var="modelWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="makeCoiceLabel" var="makeCoiceLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="minutesLabel" var="minutesLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="nameLabel" var="nameLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="namePlaceholder" var="namePlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="nameWarnLabel" var="nameWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="nextLabel" var="nextLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="openOrderLabel" var="openOrderLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="ordersLabel" var="ordersLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="orderNumberLabel" var="orderNumberLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="profileLabel" var="profileLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="passwChangeLabel" var="passwChangeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="passwordLabel" var="passwordLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="passwordPlaceholder" var="passwordPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="pictureLabel" var="pictureLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="parkingLabel" var="parkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="pcLabel" var="pcLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="parkingsLabel" var="parkingsLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="parkingNotSelectedWarn" var="parkingNotSelectedWarn"></fmt:message>
+<fmt:message bundle="${loc}" key="parkingCapacityLabel" var="parkingCapacityLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="pageLabel" var="pageLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="passwordNotMatchLabel" var="passwordNotMatchLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="previousLabel" var="previousLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="paidOrderNotice" var="paidOrderNotice"></fmt:message>
+<fmt:message bundle="${loc}" key="productsCatalog" var="productsCatalog"></fmt:message>
+
+<fmt:message bundle="${loc}" key="registrationButton" var="registrationButton"></fmt:message>
+<fmt:message bundle="${loc}" key="registrationLabel" var="registrationLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="regDataLabel" var="regDataLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="registerFieldLabel" var="registerFieldLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="rentPriceLabel" var="rentPriceLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="roleLabel" var="roleLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="rentCostPerMinuteLabel" var="rentCostPerMinuteLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="returnParkingLabel" var="returnParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="returnBikeLabel" var="returnBikeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="rentPriceZeroWarn" var="rentPriceZeroWarn"></fmt:message>
+<fmt:message bundle="${loc}" key="regDateLabel" var="regDateLabel"></fmt:message>
+
+	
+<fmt:message bundle="${loc}" key="surnameLabel" var="surnameLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="surnamePlaceholder" var="surnamePlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="speedCountLabel" var="speedCountLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="speedCountPlaceholder" var="speedCountPlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="speedCountWarn" var="speedCountWarn"></fmt:message>
+<fmt:message bundle="${loc}" key="surnameWarnLabel" var="surnameWarnLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="selectBikeErrorLabel" var="selectBikeErrorLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="stateLabel" var="stateLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="startParkingLabel" var="startParkingLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="secondsLabel" var="secondsLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="startTimeLabel" var="startTimeLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="title" var="title"></fmt:message>
+<fmt:message bundle="${loc}" key="toLabel" var="toLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="timeOfOrderLabel" var="timeOfOrderLabel"></fmt:message>
+
+<fmt:message bundle="${loc}" key="userLabel" var="userLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="usersLabel" var="usersLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="userDublicateError" var="userDublicateError"></fmt:message>
+
+<fmt:message bundle="${loc}" key="validationError" var="validationError"></fmt:message>
+<fmt:message bundle="${loc}" key="valueZeroWarn" var="valueZeroWarn"></fmt:message>
+
+<fmt:message bundle="${loc}" key="wheelSizeLabel" var="wheelSizeLabel"></fmt:message>
+<fmt:message bundle="${loc}" key="wheelSizePlaceholder" var="wheelSizePlaceholder"></fmt:message>
+<fmt:message bundle="${loc}" key="wheelSizeWarn" var="wheelSizeWarn"></fmt:message>
+
+<fmt:message bundle="${loc}" key="yourChoiceLabel" var="yourChoiceLabel"></fmt:message>

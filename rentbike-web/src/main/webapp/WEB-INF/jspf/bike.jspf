@@ -1,0 +1,158 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<form action="FrontController" method="post" enctype="multipart/form-data"   id="addBikeForm" onsubmit="checkSelectForm();return false">
+	<div class="col-md-8" style="float: left">
+	
+		<!--   ---------------------------------- bike brand ------------------------------------------ -->
+		<div class="row">
+			<div class="col-md-6"><label>${brandLabel}*</label></div>
+			<div class="col-md-5">
+				<select	name="brandId" id="brandId" class="form-control" style="width: 330px; float: left;">
+					<option selected value="0">${chooseBarndLabel}</option>
+					<c:forEach items="${brandList}" var="item">
+						<c:if test="${bike!=null}">
+							<c:if test="${bike.brand.id==item.id}">
+								<option selected value="${item.id}"><c:out value="${item.brand}"></c:out></option>	
+							</c:if>
+							<c:if test="${bike.brand.id!=item.id}">
+								<option value="${item.id}"><c:out value="${item.brand}"></c:out></option>
+							</c:if>						
+						</c:if>
+						<c:if test="${bike==null}">
+							<option <c:if test="${brandId==item.id}">selected</c:if> value="${item.id}"><c:out value="${item.brand}"></c:out></option>
+						</c:if>
+					</c:forEach> 
+				</select>
+				<label style="float:right; margin-top: -7px"><a href="FrontController?command=add_brand" onclick="location.href=getBrandValue(this);return false;"><img src="${pageContext.request.contextPath}/images/plus.png" alt="add" style="width: 32px; height: 32px; margin-top: 5px; margin-bottom: -6px"></a></label>
+			</div>
+		</div>
+	
+		<!--   ---------------------------------- model ------------------------------------------ -->
+		<div class="row">
+			<div class="col-md-6"><label><c:out value="${modelLabel}"></c:out>*</label></div>
+			<div class="col-md-5">
+					<input 	type="text"	
+							id="model"
+							name="model"
+							class="form-control"
+							<c:if test="${bike!=null}">value="${bike.model}"</c:if>
+							<c:if test="${model!=null}">value="${model}"</c:if>
+							value="${bike.model}" 
+							placeholder="${modelPlaceholder}"
+							pattern="[\w\-\s\.\dа-яА-ЯёЁ]{1,50}"
+							oninvalid="setCustomValidity('${modelWarnLabel}')"
+							oninput="setCustomValidity('')">	
+			</div>
+		</div>
+		
+		<!--   ---------------------------------- wheel size ------------------------------------------ -->
+		<div class="row">
+			<div class="col-md-6"><label><c:out value="${wheelSizeLabel}"></c:out>*</label></div>
+			<div class="col-md-5">
+					<input 	type="text"
+							id="wheelSize"
+							name="wheelSize"
+							class="form-control"
+							<c:if test="${bike!=null}">value="${bike.wheelSize}"</c:if>
+							<c:if test="${model!=null}">value="${wheelSize}"</c:if>
+							placeholder="${wheelSizePlaceholder}"
+							pattern="[1-9]{1}\d{0,1}"
+							oninvalid="setCustomValidity('${wheelSizeWarn}')"
+							oninput="setCustomValidity('')">
+			</div>
+		</div>	
+		
+		<!--   ---------------------------------- speed count ------------------------------------------ -->
+		<div class="row">
+			<div class="col-md-6"><label><c:out value="${speedCountLabel}"></c:out>*</label></div>
+			<div class="col-md-5">
+					<input 	type="text" 
+							id="speedCount"
+							name="speedCount"
+							class="form-control"
+							<c:if test="${bike!=null}">value="${bike.speedCount}"</c:if>
+							<c:if test="${model!=null}">value="${speedCount}"</c:if>
+							placeholder="${speedCountPlaceholder}"
+							pattern="[1-9]{1}\d{0,1}"
+							oninvalid="setCustomValidity('${speedCountWarn}')"
+							oninput="setCustomValidity('')">	
+			</div>
+		</div>
+		
+		<!--   ---------------------------------- bike type ------------------------------------------ -->
+		<div class="row">
+			<div class="col-md-6"><label><c:out value="${bikeTypeLabel}"></c:out>*</label></div>
+			<div class="col-md-5">
+				<select	name="bikeTypeId"  id="bikeTypeId" class="form-control" style="width: 330px; float: left;">
+					<option selected value="0"><c:out value="${chooseBikeTypeLabel}"></c:out></option>
+					<c:forEach items="${bikeTypeList}" var="item">
+						<c:if test="${bike!=null}">
+							<c:if test="${bike.bikeType.id==item.id}">
+								<option selected value="${item.id}"><c:out value="${item.bikeType}"></c:out></option>
+							</c:if>
+							<c:if test="${bike.bikeType.id!=item.id}">
+								<option value="${item.id}"><c:out value="${item.bikeType}"></c:out></option>
+							</c:if>						
+						</c:if>
+						<c:if test="${bike==null}">
+							<option <c:if test="${bikeTypeId==item.id}">selected</c:if> value="${item.id}"><c:out value="${item.bikeType}"></c:out></option>
+						</c:if>		
+					</c:forEach> 
+				</select>
+				<label style="float:right; margin-top: -7px"><a href="FrontController?command=add_bike_type" onclick="location.href=getBrandValue(this);return false;"><img src="${pageContext.request.contextPath}/images/plus.png" alt="add" style="height: 32px; width: 32px; margin-top: 3px; margin-bottom:-6px"></a></label>	
+			</div>
+		</div>
+		
+		<!--   ---------------------------------- choose picture -------------------------------------- -->				
+		<div class="row">
+			<div class="col-md-6"><label><c:out value="${pictureLabel}"></c:out></label></div>
+			<div class="col-md-5">
+				<input type="file" id="file" value="${choose_button}" name="file" class="hide" style="background: white;" accept="image/jpeg"/>
+				<label for="file" class="downloadLabel" style="float: left"><c:out value="${downloadLabel}"></c:out></label>
+			</div>
+		</div>
+
+		<br>
+		<!--   ---------------------------------- submit block ---------------------------------------- -->
+		<div class="row">
+			<div class="col-md-6"></div>
+			<div class="col-md-5" align="center">
+				<c:if test="${bike!=null}">
+					<c:if test="${bike.id==0}">
+						<input type="hidden" name="command" value="add_bike" />					
+						<input type="submit" class="btn btn-primary" value="${addBikeLabel}">		
+					</c:if>
+					<c:if test="${bike.id!=0}">		
+						<input type="hidden" name="command" value="update_bike" />					
+						<input type="submit" class="btn btn-primary" value="${editBikeButton}">		
+					</c:if>			
+				</c:if>
+				<c:if test="${bike==null}">
+						<input type="hidden" name="command" value="add_bike" />					
+						<input type="submit" class="btn btn-primary" value="${addBikeLabel}">		
+				</c:if>
+				<input type="hidden" name="bikeId" value="${bike.id}" />
+	
+			</div>
+		</div>
+	</div>
+	
+	<!--   ---------------------------------- picture preview-------------------------------------- -->
+	<div class="col-md-3">
+		<div class="row" style="margin-top: 30px">
+			<input type="hidden" name="picture" value="${bike.picturePath}"/>
+       		<span id="output"><img src="${pageContext.request.contextPath}/images/bikes/${bike.picturePath}" alt="${bike.model}" style= "height: 152px; border: none"></span>
+  		 </div>
+	</div>
+</form>
+
+
+<script>
+	<%@include file="/js/bike.js"%>	
+</script>
+
+

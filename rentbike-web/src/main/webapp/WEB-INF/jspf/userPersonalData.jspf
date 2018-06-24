@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<style>
+	<%@include file="/css/calendar.css"%>
+	<%@include file="/css/labelStyle.css"%>	
+</style>
+
+<div>
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${loginLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+			<input
+				type="text" 
+				name="login"
+				class="form-control" 
+				<c:if test="${login!=null}">value="${login}"</c:if>
+				<c:if test="${login==null}">value="${user.login}"</c:if>
+				value="${user.login}${userWrong.login}"
+				placeholder="${loginPlaceholder}"
+				pattern="[a-zA-Z]{1}[a-zA-Z0-9]{2,20}"
+				required
+				oninvalid="setCustomValidity('${loginWarn}')"
+				oninput="setCustomValidity('')">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${nameLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+				<input 	type="text"	
+						name="name" 
+						class="form-control"
+						<c:if test="${name!=null}">value="${name}"</c:if>
+						<c:if test="${name==null}">value="${user.name}"</c:if> 
+						placeholder="${namePlaceholder}"
+						pattern="[a-zA-Zа-яА-ЯЁё]{3,15}"
+						required
+						oninvalid="setCustomValidity('${nameWarnLabel}')"
+						oninput="setCustomValidity('')">	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${surnameLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+				<input 	type="text"
+						name="surname" 
+						class="form-control"
+						<c:if test="${surname!=null}">value="${surname}"</c:if>
+						<c:if test="${surname==null}">value="${user.surname}"</c:if> 
+						value="${user.surname}${userWrong.surname}" 
+						placeholder="${surnamePlaceholder}"
+						required
+						pattern="[a-zA-Zа-яА-ЯЁё]{3,15}"
+						oninvalid="setCustomValidity('${surnameWarnLabel}')"
+						oninput="setCustomValidity('')">	
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${emailLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+				<input 	type="email" 
+						name="email" 
+						class="form-control"
+						<c:if test="${email!=null}">value="${email}"</c:if>
+						<c:if test="${email==null}">value="${user.email}"</c:if> 
+						value="${user.email}${userWrong.email}"
+						placeholder="${emailPlaceholder}"
+						required
+						oninvalid="setCustomValidity('${emailWarnLabel}')"
+						oninput="setCustomValidity('')">	
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${birthdayLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+				<input 	type="text"
+						id="birthday"
+						name="birthday" 
+						class="form-control"
+						style="background-color: white" 
+						<c:if test="${birthday!=null}">value="${birthday}"</c:if>
+						<c:if test="${birthday==null}">value="${user.birthday}"</c:if> 
+						value="${user.birthday}${userWrong.birthday}"
+						placeholder="${birthdayPlaceholder}"
+						required
+						readonly
+						autocomplete="off"
+						id="birthday">
+		</div>
+	</div>		
+	<div class="row">
+		<div class="col-md-4"><label><c:out value="${creditCardLabel}"></c:out>*</label></div>
+		<div class="col-md-4">
+				 <input type="text"
+						name="creditCard" 
+						class="form-control"
+						<c:if test="${creditCard!=null}">value="${creditCard}"</c:if>
+						<c:if test="${creditCard==null}">value="${user.creditCard}"</c:if>
+						value="${user.creditCard}${userWrong.creditCard}" 
+						placeholder="${creditCardPlaceholder}"
+						required
+						pattern="[1-9]{1}[0-9]{15}"
+						oninvalid="setCustomValidity('${creditcardWarnLabel}')"
+						oninput="setCustomValidity('')">						
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	<%@include file="/js/userPersonalData.js"%>
+	<%@include file="/js/calendar.js"%>
+	var zD = new Calendar();
+	zD.init({lng:'${sessionScope.local}'});
+	zD.add('birthday', 'birthday');
+</script>

@@ -1,0 +1,4 @@
+min_age=10
+default_element_on_page=5
+upload_dir=images/bikes
+free_rent_time=20

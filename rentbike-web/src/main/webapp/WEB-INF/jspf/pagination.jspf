@@ -1,0 +1,27 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<div class="container">
+	<c:if test="${pageInfo.emptyList == false}">
+		<div class="row" style="margin-top: 15px">
+			<div class="col-md-4">
+				<c:if test="${pageInfo.currentPage == 1}">
+					<label style="float:right; color: grey"><c:out value="${previousLabel}"></c:out> <c:out value="${pageInfo.defaultElementOnPage}"></c:out></label>
+				</c:if>
+				<c:if test="${pageInfo.currentPage != 1}">
+					<label style="float:right"><a href="FrontController?command=pagination&pageAction=previous"><c:out value="${previousLabel}"></c:out> <c:out value="${pageInfo.defaultElementOnPage}"></c:out></a></label>
+				</c:if>
+			</div>
+			<div class="col-md-1" style="text-align: center">
+				<label style="font-weight: bold"><c:out value="${pageLabel}"></c:out> <c:out value="${pageInfo.currentPage}"></c:out></label>
+			</div>
+			<div class="col-md-2">
+				<c:if test="${pageInfo.lastPage}">
+					<label style="color: grey"><c:out value="${nextLabel}"></c:out> <c:out value="${pageInfo.defaultElementOnPage}"></c:out></label>
+				</c:if>						
+				<c:if test="${pageInfo.lastPage eq false}">
+					<label><a href="FrontController?command=pagination&pageAction=next"><c:out value="${nextLabel}"></c:out> <c:out value="${pageInfo.defaultElementOnPage}"></c:out></a></label>
+				</c:if>							
+			</div>
+		</div>
+	</c:if>
+</div>

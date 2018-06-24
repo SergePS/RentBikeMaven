@@ -1,0 +1,7 @@
+JDBCDriver=com.mysql.jdbc.Driver
+path=jdbc:mysql://127.0.0.1/rentbike?useSSL=false
+login=root
+password=qwerty123456
+connectionCount=4
+maxConnectionCount=8
+waitTimeConnection=1000

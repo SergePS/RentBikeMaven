@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+	<Configuration status="debug" name="XMLConfigTest" packages="org.apache.logging.log4j.test">
+		<Properties>
+			<property name = "patternMsgFile">
+				%d{YYYY-MM-dd_HH:mm:ss} [%t] %-5level %logger{4}- %msg%n
+			</property>
+			<property name = "patternMsgConsole">
+				%d{ABSOLUTE} %-5level %logger{1}- %msg%n
+			</property>
+			<property name = "filePattern">
+				%d{YYYY-MM-DD}/%d{YYYY-MM-dd_HH-mm}_%i.log
+			</property>	
+			<property name = "logs">
+				${log4j:configParentLocation}\logs
+			</property>				
+						
+		</Properties>
+		
+		<Appenders>
+			<Console name = "Console" target = "SYSTEM_OUT">
+				<PatternLayout pattern = "${patternMsgConsole}" charset="UTF-8"/>
+			</Console>
+
+			<RollingFile name = "LogFile" fileName = "${logs}\text.log" append = "true" filePattern = "${logs}\${filePattern}">
+				<PatternLayout pattern = "${patternMsgFile}" charset="UTF-8"/>
+				<Policies>
+					<TimeBasedTriggeringPolicy/>
+					<SizeBasedTriggeringPolicy size = "5 KB"/>
+				</Policies>
+				<DefaultRolloverStrategy max = "10"/>
+			</RollingFile>	
+		</Appenders>
+		
+		<Loggers>
+			<Root level = "DEBUG">
+				<AppenderRef ref = "LogFile" level = "debug"/>
+				<AppenderRef ref = "Console" level = "debug"/>
+			</Root>
+		</Loggers>
+			
+	</Configuration>
